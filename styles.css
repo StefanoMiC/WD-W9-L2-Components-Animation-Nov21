@@ -217,7 +217,7 @@ aside.show ul li:nth-of-type(4) {
 }
 
 aside.show button {
-  animation: fade-in 1s backwards 1s, pop-up 1.5s both 1.2s;
+  animation: pop-up 1.5s both cubic-bezier(0.49, 0.38, 0.28, 1) 1.2s;
 }
 
 aside.hide h4,
