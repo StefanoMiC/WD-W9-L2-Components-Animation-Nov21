@@ -9,6 +9,7 @@
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: #e3f3ed;
 }
 
 nav {
@@ -298,7 +299,7 @@ main h1::after {
 }
 
 main h1::before {
-  background-color: white;
+  background-color: #e3f3ed;
   animation: write 3s steps(30) forwards 3s;
 }
 
