@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Componets Animations</title>
+</head>
+
+<body>
+    <nav>
+        <a href="https://strive.school"><img src="./strive_white.png" alt="strive logo" height="40"></a>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <aside>
+        <h4>Menu</h4>
+        <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Courses</li>
+            <li>Contacts</li>
+        </ul>
+        <button>Apply Now</button>
+    </aside>
+
+    <main>
+        <h1>Hello Strivers! Ready to code?</h1>
+        <p>Let's jump right in...</p>
+        <button>Candidate Now</button>
+    </main>
+
+    <script>
+        window.onload = function () {
+            const body = document.querySelector("body")
+            const btn = document.querySelector(".menu-btn")
+            const sidebar = document.querySelector("aside")
+
+            const handleBtnClick = function () {
+
+                const overlay = body.querySelector(".overlay")
+
+                if (btn.className.endsWith("expanded")) {
+                    btn.classList.add("collapsed")
+                    btn.classList.remove("expanded")
+
+                    sidebar.classList.add("hide")
+                    sidebar.classList.remove("show")
+
+                    overlay.classList.add("hide")
+                    setTimeout(function () { overlay.remove() }, 550)
+                } else {
+                    btn.classList.add("expanded")
+                    btn.classList.remove("collapsed")
+
+                    sidebar.classList.add("show")
+                    sidebar.classList.remove("hide")
+                }
+            }
+
+            const handleOverlay = function () {
+                if (!document.querySelector("body .overlay")) {
+                    const overlay = document.createElement("div")
+                    overlay.classList.add("overlay")
+                    // overlay.style.cssText = "position:fixed; top:0; right:0; bottom:0; left: 0; z-index: 0; background-color: #00000096; animation: fade-in 1s backwards"
+
+                    overlay.addEventListener("click", handleBtnClick)
+                    body.appendChild(overlay)
+                }
+            }
+
+            btn.addEventListener("click", function () {
+                handleOverlay()
+
+                handleBtnClick()
+
+            })
+        }
+    </script>
+</body>
+
+</html>
